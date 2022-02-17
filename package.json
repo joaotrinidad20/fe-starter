@@ -10,7 +10,7 @@
     "compile-js": "rollup ./src/js/scripts.js --file ./public/dist/js/scripts.js --format iife",
     "watch-js": "rollup ./src/js/scripts.js --file ./public/dist/js/scripts.js --format iife --watch"
   },
-  "Dependencies": {
+  "dependencies": {
     "express": "^4.17.2",
     "rollup": "^2.63.0",
     "sass": "^1.47.0"
