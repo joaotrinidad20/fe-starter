@@ -7,15 +7,6 @@
   content: "2";
 }
 
-body {
-  background-color: #1e202a;
-}
-
-@media all and (max-width: 1024px) {
-  #bloc_page {
-    width: auto;
-  }
-}
 * {
   margin: 0;
   border: 0;
@@ -51,15 +42,12 @@ body {
   gap: 20px;
 }
 
-.cards2 {
+.card2 {
   width: 253px;
-  padding: 1.5rem 2rem;
+  padding: 2rem;
   text-align: center;
   border-radius: 5px;
   background-color: #252a41;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
 }
 
 /* The switch - the box around the slider */

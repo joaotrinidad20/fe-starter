@@ -1,13 +1,17 @@
 @import url(/src/fonts/fonts.css);
 
-body {
-    background-color: hsl(230, 17%, 14%);
-}
-@media all and (max-width: 1024px){
-    #bloc_page{
-        width: auto;
-    }
-}
+
+// @media all and (max-width: 1024px){
+//     #bloc_page{
+//         width: auto;
+//     }
+// }
+
+// @media all and (width: 1120px){
+//     #bloc_page{
+//         margin: 0 auto;
+//     }
+// }
 
 * {
     margin: 0;
@@ -40,20 +44,16 @@ body {
 
 .boxbottom {
     display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
 
-.cards2 {
+.card2 {
     width: 253px;
-  padding: 1.5rem 2rem;
-  text-align: center;
-  border-radius: 5px;
-  background-color: hsl(228, 28%, 20%);
-   
-  display:grid; 
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 5px;
+    background-color: hsl(228, 28%, 20%);
 }
 
  /* The switch - the box around the slider */
