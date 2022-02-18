@@ -17,136 +17,49 @@ body {
   }
 }
 * {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1e202a;
   color: white;
-  font-family: Inter;
-  font-size: 14px;
-}
-
-.header {
-  font-size: 25px;
-}
-
-.total {
-  color: #8b97c6;
-}
-
-.upperheader {
-  display: flex;
-  flex-direction: column;
-  left: 180px;
-  margin-left: 11.5%;
-}
-
-.username {
-  color: #8b97c6;
-}
-
-.interactiontop {
-  color: #8b97c6;
-}
-
-.interaction {
-  color: #8b97c6;
-  font-weight: bold;
-  font-size: 10px;
-}
-
-.buttonname {
-  position: absolute;
-  top: 35px;
-  right: 240px;
-  color: #8b97c6;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.facebookborder {
-  border-top: 5px solid #198ff5;
-}
-
-.twitterborder {
-  border-top: 5px solid #1ca0f2;
-}
-
-.instagramborder {
-  border-top: solid;
-  border-width: 5px;
-  border-image-source: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  border-image-slice: 1;
-}
-
-.youtubeborder {
-  border-top: 5px solid #c4032a;
-}
-
-.card {
-  background-color: #252a41;
-  padding: auto;
-  height: 200px;
-  width: 18.5%;
-  display: inline-block;
-  overflow: auto;
-  margin: 10px 8px 25px 8px;
-  text-align: center;
-  border-radius: 5px;
-}
-
-.numbers {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.boxbottomheader {
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  left: 180px;
-  margin-left: 11.5%;
-}
-
-.card2 {
-  background-color: #252a41;
-  padding: auto;
-  height: 120px;
-  width: 22.5%;
-  display: inline-block;
-  overflow: auto;
-  margin: 10px 8px 0px 8px;
-  text-align: center;
-  border-radius: 5px;
-  min-width: 100px;
-}
-
-.numbersbottom {
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.updatesup {
-  color: #1db489;
-  font-weight: bold;
-  font-size: 10px;
-}
-
-.updatesdown {
-  color: #dc414c;
-  font-weight: bold;
-  font-size: 10px;
+  font-family: Inter, sans-serif;
 }
 
 .boxtop {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: space-between;
+}
+
+.card {
+  width: 253px;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #252a41;
+  margin-top: 50px;
 }
 
 .boxbottom {
-  display: flex;
-  width: 80%;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.cards2 {
+  width: 253px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #252a41;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 /* The switch - the box around the slider */
