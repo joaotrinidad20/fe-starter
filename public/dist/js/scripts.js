@@ -7,7 +7,7 @@
     const $primaryCards = $content.querySelector('.primary-cards');
     const $supportingCards = $content.querySelector('.supporting-cards');
 
-    const response = await fetch('./data.json');
+    const response = await fetch('/api/dashboard');
     const data = await response.json();
 
     const { primary_metrics, supporting_metrics: supportingCards } = data;
