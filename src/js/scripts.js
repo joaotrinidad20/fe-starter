@@ -1,52 +1,51 @@
-// 1. Fetch Data
-fetch("/api/dashboard")
-  .then((response) => response.json())
-  .then((data) => {
-    
-    //Updating Total Metrics
-    document.getElementById('totalfollowers').innerHTML = `
-      Total ${data.primary_metrics.total.label}: ${data.primary_metrics.total.value}
-    `;
+async function init() {
+  const $content = document.querySelector('.content');
+  const $total = $content.querySelector('.total');
+  const $primaryCards = $content.querySelector('.primary-cards');
+  const $supportingCards = $content.querySelector('.supporting-cards');
 
-    //Updating Contents of primary metrics
-    document.getElementById('upperlayer').innerHTML = "";
-    data.primary_metrics.cards.forEach(card => {
-      document.getElementById('upperlayer').innerHTML += `
-        <div class="card">
-          <div class="${card.service}border">
-          <p class="username">
-              <img class="logo" src="/design/images/icon-${card.service}.svg"/>
-              @nathanf${card.username}
-          </p>
-          <p class="numbers">${card.value}</p>
-          <p class="interactiontop">${card.label}</p>
-          <p class="updates${card.metric.trend}">
-              <img src="/design/images/icon-${card.metric.trend}.svg"/>
-              ${card.metric.value}Today
-          </p>
-          </div>
-        </div>
-      `;
-    });
+  const response = await fetch('/api/dashboard');
+  const data = await response.json();
 
-    //Updating contents of supporting metrics.
-    document.getElementById('lowerlayer').innerHTML = "";
-    data.supporting_metrics.forEach(card => {
-      document.getElementById('lowerlayer').innerHTML += `
-       <div class="card2">
-          <p class="interaction">
-        ${card.label}
-        <img class="logo" src="/design/images/icon-${card.service}.svg"/>
-        </p>
-        <div class="a">
-        <p class="numbersbottom">${card.value}</p>
-        <p class="updates${card.metric.trend}">
-                <img src="/design/images/icon-${card.metric.trend}.svg"/>
-                ${card.metric.percent}%
-            </p>
-        </div>
-       </div>
+  const { primary_metrics, supporting_metrics: supportingCards } = data;
+  const { total, cards: primaryCards } = primary_metrics;
 
-      `;
-    });
-  });
+  // 1. render the total header text
+  $total.textContent = `Total ${total.label}: ${total.value}`;
+
+  // 2. render the primary cards
+  primaryCards.forEach(card => {
+    $primaryCards.innerHTML += renderCard(card);
+  })
+
+  // 3. render the supporting cards
+  supportingCards.forEach(card => {
+    $supportingCards.innerHTML += renderCard(card);
+  })
+}
+
+function renderCard(card) {
+  const { service, username, value, label, metric } = card;
+  const { trend, percent, value: trendValue } = metric;   
+  
+  return `
+    <article class="card service-${service}">
+      <div class="card-user">
+        <img src="./images/icon-${service}.svg" alt="${service}">
+        ${username ? `<p>@${username}</p>` : ''}
+      </div>
+
+      <div class="card-main">
+        <p class="card-number">${value}</p>
+        <p class="card-label">${label}</p>
+      </div>
+
+      <div class="card-metric is-${trend}">
+        <img src="./images/icon-${trend}.svg" alt="${trend}">
+        <p>${percent ? `${percent}%` : `${trendValue} Today`}</p>
+      </div>
+    </article>
+  `;
+}
+
+init();
